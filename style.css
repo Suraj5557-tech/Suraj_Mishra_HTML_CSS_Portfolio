@@ -1,0 +1,476 @@
+/* ==========================================================
+   Suraj Mishra - Portfolio
+   Palette: ink (text), teal (main accent), amber (highlight),
+   mist (page background). Change them once in :root.
+   ========================================================== */
+
+:root {
+  --ink: #1b2340;
+  --ink-soft: #4a5370;
+  --teal: #0b7a7d;
+  --teal-dark: #085b5e;
+  --amber: #f2a93b;
+  --mist: #eef2f6;
+  --white: #ffffff;
+  --line: #d6dde6;
+
+  --font-heading: "Bricolage Grotesque", "Segoe UI", Arial, sans-serif;
+  --font-body: "Source Sans 3", "Segoe UI", Arial, sans-serif;
+  --radius: 14px;
+}
+
+/* ---------- Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--mist);
+  overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  line-height: 1.15;
+  margin: 0 0 0.75rem;
+  color: var(--ink);
+}
+
+h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 800; letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.8rem, 3.5vw, 2.4rem); font-weight: 700; margin-bottom: 2rem; }
+h3 { font-size: 1.2rem; font-weight: 700; }
+
+p { margin: 0 0 1rem; max-width: 65ch; }
+
+a { color: var(--teal-dark); }
+
+ul { margin: 0; padding: 0; list-style: none; }
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.muted { color: var(--ink-soft); font-size: 0.95rem; }
+.strong { font-weight: 600; }
+
+/* Visible keyboard focus everywhere */
+a:focus-visible {
+  outline: 3px solid var(--amber);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---------- Header / Navigation ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 0.9rem;
+  padding-bottom: 0.9rem;
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.nav-links a {
+  display: block;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  background: var(--teal);
+  color: var(--white);
+}
+
+/* ---------- Sections ---------- */
+.section {
+  padding: 5rem 0;
+}
+
+.section-tint {
+  background: var(--white);
+}
+
+/* Keeps headings visible below the sticky header after a nav jump */
+section[id] {
+  scroll-margin-top: 4.5rem;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.6rem;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid var(--teal);
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+
+.btn-primary {
+  background: var(--teal);
+  color: var(--white);
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background: var(--teal-dark);
+  border-color: var(--teal-dark);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--teal-dark);
+}
+
+.btn-outline:hover,
+.btn-outline:focus-visible {
+  background: var(--teal);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  padding: 5rem 0 4.5rem;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.hero-role {
+  display: inline-block;
+  background: var(--amber);
+  color: var(--ink);
+  font-weight: 600;
+  padding: 0.25rem 0.9rem;
+  border-radius: 999px;
+  margin-bottom: 1.2rem;
+}
+
+.hero-intro {
+  font-size: 1.15rem;
+  color: var(--ink-soft);
+  margin-bottom: 2rem;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+}
+
+/* Mini dashboard illustration (CSS only) */
+.dashboard {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.2rem;
+  box-shadow: 10px 10px 0 var(--teal);
+}
+
+.dash-top {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--line);
+}
+
+.dash-title {
+  margin-left: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.kpis {
+  display: flex;
+  gap: 0.8rem;
+  margin-bottom: 1.2rem;
+}
+
+.kpi {
+  flex: 1;
+  background: var(--mist);
+  border-radius: 10px;
+  padding: 0.7rem 0.9rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.kpi strong {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  line-height: 1.1;
+}
+
+.kpi span {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.6rem;
+  height: 150px;
+  padding-top: 0.5rem;
+  border-bottom: 2px solid var(--line);
+}
+
+.bars span {
+  flex: 1;
+  background: var(--teal);
+  border-radius: 6px 6px 0 0;
+}
+
+.bars span.highlight {
+  background: var(--amber);
+}
+
+/* ---------- About ---------- */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 3rem;
+}
+
+.about-side {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.info-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--teal);
+  border-radius: var(--radius);
+  padding: 1.3rem 1.5rem;
+}
+
+.info-card p { margin-bottom: 0.3rem; }
+
+.plain-list li {
+  position: relative;
+  padding-left: 1.2rem;
+  margin-bottom: 0.4rem;
+}
+
+.plain-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--amber);
+}
+
+/* ---------- Skills ---------- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.skill-group {
+  background: var(--mist);
+  border-radius: var(--radius);
+  padding: 1.4rem;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.chips li {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.25rem 0.9rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.skill-group .chips li:hover {
+  background: var(--teal);
+  border-color: var(--teal);
+  color: var(--white);
+}
+
+/* ---------- Projects ---------- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 1.8rem;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.7rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.project-card:hover,
+.project-card:focus-within {
+  transform: translateY(-4px);
+  box-shadow: 6px 6px 0 var(--amber);
+}
+
+.project-card p {
+  color: var(--ink-soft);
+  flex-grow: 1;
+}
+
+.chips-small { margin-bottom: 1.2rem; }
+
+.chips-small li {
+  background: var(--mist);
+  font-size: 0.85rem;
+  padding: 0.15rem 0.7rem;
+}
+
+.card-link {
+  font-weight: 600;
+  align-self: flex-start;
+}
+
+/* ---------- Contact ---------- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.contact-intro {
+  color: var(--ink-soft);
+}
+
+.contact-list li {
+  display: flex;
+  flex-direction: column;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--line);
+  overflow-wrap: anywhere;
+}
+
+.contact-list li:first-child { padding-top: 0; }
+
+.contact-label {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background: var(--ink);
+  color: var(--white);
+  padding: 1.5rem 0;
+  text-align: center;
+}
+
+.site-footer p {
+  margin: 0 auto;
+  max-width: none;
+}
+
+/* ---------- Responsive: tablets ---------- */
+@media (max-width: 900px) {
+  .hero-grid,
+  .about-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .section { padding: 3.5rem 0; }
+}
+
+/* ---------- Responsive: phones ---------- */
+@media (max-width: 600px) {
+  body { font-size: 1rem; }
+
+  .nav {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .nav-links { justify-content: center; }
+
+  .nav-links a { padding: 0.35rem 0.65rem; font-size: 0.95rem; }
+
+  .hero { padding: 3rem 0; }
+
+  .dashboard { box-shadow: 6px 6px 0 var(--teal); }
+
+  .btn { width: 100%; text-align: center; }
+
+  section[id] { scroll-margin-top: 7rem; }
+}
+
+/* Respect users who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
